@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking app landing page</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<script>
+
+function scrollService(){
+	var elmnt = document.getElementById("features");
+	elmnt.scrollIntoView();
+}
+
+</script>
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <a href="#" class="logo"><span>SilverCoin</span>BANK<i class="fa fa-bank"></i></a>
+    
+
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar" class="fa fa-bars"></label>
+
+    <nav class="navbar">
+        <a href="/">home</a>
+        <a href="/openAccount">Create Account</a>
+        <a href="#fundT">Fund Transfer</a>
+        <a href="#loan" onclick="scrollService();">Services</a>
+        <a href="#statment">E_Statment</a>
+        <a href="#update">Updation</a>
+        <a href="#cibil">Cibil Score</a>
+        <a href="#credit">Credit Card</a>
+         <a href="/equity/0"> Equity Info</a>
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+    <div class="form" >
+        
+        <h2>Login</h2>
+    <form action="/loginVerfy">
+
+        
+        <div class="input">
+            <div class="inputBox">
+                <label for="">UserName</label>
+                <input type="text" name="username" >
+            </div>
+            <div class="inputBox">
+                <label for="">Password</label>
+                <input type="password" name="password">
+            </div>
+            <div class="inputBox">
+                <input type="submit" name="" value="Sign In"> 
+            </div>
+        </div>
+    </form>
+        <p class="forgot">Forgot Password? <a href="#">Click Here</a></p>
+        
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> our factlities </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMMMjiU5Skyp4Hgxz2cusqdKHU_Ry6SsgUCX_09D_yvkWqrgHggFWN_HTC2l0c4GtW-jI&usqp=CAU" alt="">
+            <h3>Home Loan</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae perspiciatis, atque eveniet voluptatum, saepe harum optio veritatis id earum esse illum, error voluptas beatae!</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="https://previews.123rf.com/images/netsay/netsay1704/netsay170403512/75642189-personal-loan-sign-on-white-paper-man-hand-holding-paper-with-text-isolated-on-white-background-busi.jpg" alt="">
+            <h3>personal loan</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia praesentium asperiores labore similique odio cupiditate unde laboriosam, earum magnam. Nostrum maiores ipsam nemo accusamus. </p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="https://cdn.siasat.com/wp-content/uploads/2019/08/gold-1.jpg" alt="">
+            <h3>gold loan</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab voluptate, at eius, tempore earum non autem animi quos modi harum, iste quam quis?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="https://www.indivstock.com/static41/preview1/stock-photo-smiling-businesswoman-holding-a-green-piggy-bank-isolated-on-white-background-finance-banking-loan-savings-concept-637058.jpg" alt="">
+            <h3>Business loan</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab voluptate, at eius, tempore earum non autem animi quos modi harum, iste quam quis?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/051/487/small/happy-couple-with-an-approved-car-loan-and-new-modern-auto-illustration-concept-flat-illustration-isolated-on-white-background-vector.jpg" alt="">
+            <h3>Vehicle loan</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab voluptate, at eius, tempore earum non autem animi quos modi harum, iste quam quis?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvsdySh_vENNFlPeZlS6qYwNjiwonJDwa1z8rGF6EU8nSh7JGHh1YyCV9W5eYG5YY-XXQ&usqp=CAU" alt="">
+            <h3>Education loan</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ab voluptate, at eius, tempore earum non autem animi quos modi harum, iste quam quis?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- features section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> digital banking </h1>
+
+    <div class="column">
+
+        <div class="image">
+            <img src="images/about-img.png" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Easy And Perfect Solution For Your Business App</h3>
+            <p>A working contact form so easy to setup, this theme will look great in all devices. Which is designed with advanced html and css foundation framework.</p>
+            <p>Clean coded. Will make you update and run your site in few hours, We designed this theme with lot of creativity and love.</p>
+            <div class="buttons">
+                <a href="#" class="btn"> <i class="fab fa-apple"></i> app store </a>
+                <a href="#" class="btn"> <i class="fab fa-google-play"></i> google-play </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- newsletter  -->
+
+<div class="newsletter" >
+
+    <h3>Rate And Charges</h3>
+    <div style="display: flex;">
+    <p >starting from<br>3%<br>SAVING</p>
+    <p>Upto<br>5.5%<br>FIXED DEPOSIT</p>
+    <p>starting from<br>10.50%<br>PERSONAL LOAN</p>
+    <p>starting from<br>6.70%<br>HOME LOAN</p>
+    </div>
+    <form action="">
+        <input type="email" placeholder="NSE ICICI BANK 764.05 INR"  style="text-align: center;">
+    </form>
+
+</div>
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> people's review </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="images/mod1.jpg" alt="">
+                <h3>chan</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="comment">
+                    I like your work. Are you avaliable to freelance? I'm looking for a designer to help me make an email app.
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="images/mod2.jpg" alt="">
+                <h3>adi</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="comment">
+                    I like your work. Are you avaliable to freelance? I'm looking for a designer to help me make an email app.
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-quote-right"></i>
+            <div class="user">
+                <img src="images/mod3.jpg" alt="">
+                <h3>subham</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="comment">
+                    I like your work. Are you avaliable to freelance? I'm looking for a designer to help me make an email app.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<div class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p>This is a demo text and graphic content of bestapp with definitive platform for mobile.</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">features</a>
+            <a href="#">about</a>
+            <a href="#">review</a>
+            <a href="#">pricing</a>
+            <a href="#">contact</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">pinterest</a>
+            <a href="#">twitter</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <div class="info">
+                <i class="fas fa-phone"></i>
+                <p> +000-000-0000 <br> +111-1111-111 </p>
+            </div>
+            <div class="info">
+                <i class="fas fa-envelope"></i>
+                <p> jhbank@gmail.com <br> jhglobal@gmail.com </p>
+            </div>
+            <div class="info">
+                <i class="fas fa-map-marker-alt"></i>
+                <p> bangalore, india - 560068 </p>
+            </div>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> &copy; Copyright @ 2021. All rights reseved </h1>
+
+</div>
+
+<!-- footer section ends -->
+</body>
+</html>

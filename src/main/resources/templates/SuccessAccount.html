@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	
+<div th:each = " f : ${recent}" style="text-align: center;" class="primary"> 
+*Please Change Your password and give a new Password by clicking button below.<br>
+
+<div style="align-content: center;">
+<table>
+<tr>
+<td>Account Type</td>
+<td><h5 th:text="${f.accountType}"></h5></td>
+</tr>
+<tr>
+<td>Account Number</td>
+<td> <h5 th:text="${f.accountNum}"></h5></td>
+</tr>
+<tr>
+<td>IFSC Code</td>
+<td><h5 th:text="${f.ifscCode}"></h5></td>
+</tr>
+<tr>
+<td>Your UserName</td>
+<td><h5 th:text="${f.userName}"></h5></td>
+</tr>
+<tr>
+<td>Your Default Password</td>
+<td><h5 th:text="${f.password}" id="pass" style="color: red"></h5></td>
+</tr>
+</table>
+<input type="hidden" th:value="${f.id}" id="hiddenId">
+</div>
+		
+		<button data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="setDefaultpass();"> Set Password </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <label>
+       Default Password: 
+       </label><input type="text" name="defaultPassword" id="defaultPass" disabled><br><br>
+      
+      
+       <form action="/updatePassword">
+       <input type="hidden" name="id" id="setId">
+       <label>
+       Enter Password: 
+       </label><input type="text" name="updatePass" id="setPass"><br><br>
+       <label>
+       Confirm Password: 
+       </label>
+       <input type="text" name="updateConfirmPass" id="setConfPass" onchange="checkPass();"><br><br>
+       <span id="errorMsg"></span>
+     
+     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="update">Save changes</button>
+      </div>
+     </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+<script type="text/javascript">
+function setDefaultpass(){
+	defaultPass = document.getElementById("pass").innerHTML;
+	document.getElementById("defaultPass").value = defaultPass;
+	
+	document.getElementById("setId").value= document.getElementById("hiddenId").value;
+}
+function checkPass(){
+	var msg = document.getElementById("setPass").value;
+	var v = document.getElementById("setConfPass").value;
+	console.log(msg, v);
+	
+	if(msg === v)
+	{
+		document.getElementById("update").disabled = false;
+		document.getElementById("errorMsg").innerHTML = "match";
+		document.getElementById("errorMsg").style.color = "green";
+		
+	}
+	else {
+		document.getElementById("errorMsg").innerHTML = "Not match";
+		document.getElementById("errorMsg").style.color = "red";
+		document.getElementById("update").disabled = true;
+		
+	}
+}
+
+</script>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking app landing page</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body style="z-index: -1;">
+    
+<!-- header section starts  -->
+
+<header>
+
+    <a href="#" class="logo"><span>jH</span>_BANK<i class="fa fa-bank"></i></a>
+    
+
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar" class="fa fa-bars"></label>
+
+    <nav class="navbar">
+        <a href="/">home</a>
+        <a href="/openAccount">Create Account</a>
+        <a href="#fundT">Fund Transfer</a>
+        <a href="#loan">Loan</a>
+        <a href="#statment">E_Statment</a>
+        <a href="#update">Updation</a>
+        <a href="#cibil">Cibil Score</a>
+        <a href="#credit">Credit Card</a>
+    </nav>
+</header>
+
+
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+    <h1 style="margin-left: 30px; font-size: large; padding: 20px;"> Balance :  <span style="color: green;">40000</span> <span style="color: red;">₹</span></h1>
+    <div class="form" style="width: 100%; background-color: azure; border: solid 2px red;" >
+        
+        <h2 style="padding: 10px; 
+            color: black; font-size: medium; font-family: Arial, Helvetica, sans-serif;">Mr. Dilip </h2><br>
+            <img th:src ="*{'data:image/jpg;base64,'+user.userPhoto}"
+            alt="customer Image" style=" float: left; width: 150px; height: 160px;">
+
+        <table style="text-align: left; float:inline-end; width: 80%; margin-left: 20%;">
+            <tr>
+                <th>Full Name</th>
+                <td>
+                    <h5 th:text="${user.firstName} +' '+ ${user.middleName} +' '+${user.lastName} "></h5>
+                </td>
+            </tr>
+            <tr>
+                <th>Account Number</th>
+                <td>
+                    <h5 th:text="${user.accountNum}"></h5>
+                </td>
+            </tr>
+            <tr>
+                <th>Branch IFSC</th>
+                <td>
+                    <h5 th:text="${user.ifscCode}"></h5>
+                </td>
+            </tr>
+            <tr>
+                <th>Adhaar Number</th>
+                <td>
+                    <h5 th:text="${user.adhaarNum}"></h5>
+                </td>
+            </tr>
+            <tr>
+                <th>PAN Number</th>
+                <td>
+                    <h5 th:text="${user.panNum}"></h5>
+                </td>
+            </tr>         
+        </table>
+        <br>
+        <img th:src ="*{'data:image/PNG;base64,'+user.userQr}"
+        alt="QR code" style="height: 200px; width: 200;">
+
+    </div>
+
+</section>
+
+
+
+
+<!-- footer section starts  -->
+
+<div class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p>This is a demo text and graphic content of bestapp with definitive platform for mobile.</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">features</a>
+            <a href="#">about</a>
+            <a href="#">review</a>
+            <a href="#">pricing</a>
+            <a href="#">contact</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">pinterest</a>
+            <a href="#">twitter</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <div class="info">
+                <i class="fas fa-phone"></i>
+                <p> +000-000-0000 <br> +111-1111-111 </p>
+            </div>
+            <div class="info">
+                <i class="fas fa-envelope"></i>
+                <p> jhbank@gmail.com <br> jhglobal@gmail.com </p>
+            </div>
+            <div class="info">
+                <i class="fas fa-map-marker-alt"></i>
+                <p> bangalore, india - 560068 </p>
+            </div>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> &copy; Copyright @ 2021. All rights reseved </h1>
+
+</div>
+
+<!-- footer section ends -->
+</body>
+</html>
