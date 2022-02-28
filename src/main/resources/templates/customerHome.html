@@ -11,7 +11,6 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body style="z-index: -1;">
     
@@ -19,22 +18,24 @@
 
 <header>
 
-    <a href="#" class="logo"><span>jH</span>_BANK<i class="fa fa-bank"></i></a>
+    <a href="#" class="logo"><span>SilverCoin</span>BANK<i class="fa fa-bank"></i></a>
     
 
     <input type="checkbox" id="menu-bar">
     <label for="menu-bar" class="fa fa-bars"></label>
 
     <nav class="navbar">
-        <a href="/">home</a>
-        <a href="/openAccount">Create Account</a>
-        <a href="#fundT">Fund Transfer</a>
-        <a href="#loan">Loan</a>
-        <a href="#statment">E_Statment</a>
-        <a href="#update">Updation</a>
-        <a href="#cibil">Cibil Score</a>
-        <a href="#credit">Credit Card</a>
+        <a href="/">home<i class="fa fa-home"></i></a>
+        <a href="/openAccount">Create Account<i class="fa fa-user-plus"></i></a>
+        <a href="/fundTransfer">Fund Transfer<i class="fa fa-exchange"></i></a>
+        <a href="/loan.html">Loan<i class="fas fa-donate"></i></a>
+        <a href="/eStatement">E_Statment<i class="fas fa-receipt"></i></a>
+        <a href="/update">Updation<i class="fas fa-cash-register"></i></a>
+        <a href="../cibilScore">Cibil Score<i class="fas fa-balance-scale"></i></a>
+        <a href="/card">My Card<i class="fa fa-credit-card" ></i></a>
+        <a href="/equity/0">Equity info<i class="fa fa-star" ></i></a>
     </nav>
+    
 </header>
 
 
@@ -44,14 +45,17 @@
 <!-- home section starts  -->
 
 <section class="home" id="home">
-    <h1 style="margin-left: 30px; font-size: large; padding: 20px;"> Balance :  <span style="color: green;">40000</span> <span style="color: red;">₹</span></h1>
+    <h1 style="margin-left: 30px; font-size: large; padding: 20px;"> Balance :  <span style="color: green;" th:text="${user.accountBalance}"></span> <span style="color: red;">₹</span></h1>
     <div class="form" style="width: 100%; background-color: azure; border: solid 2px red;" >
         
-        <h2 style="padding: 10px; 
-            color: black; font-size: medium; font-family: Arial, Helvetica, sans-serif;">Mr. Dilip </h2><br>
+        <h2 style="padding: 10px;
+            color: black; font-size: medium; font-family: Arial, Helvetica, sans-serif;" th:text="Welcome +${user.firstName}"> </h2><br>
+           <h2 style="color: red;">Cibil Score : <span th:text="${user.cibilScore}" style="color: red;"></span></h2>
+           <br>
             <img th:src ="*{'data:image/jpg;base64,'+user.userPhoto}"
             alt="customer Image" style=" float: left; width: 150px; height: 160px;">
-
+            
+		
         <table style="text-align: left; float:inline-end; width: 80%; margin-left: 20%;">
             <tr>
                 <th>Full Name</th>
@@ -82,11 +86,13 @@
                 <td>
                     <h5 th:text="${user.panNum}"></h5>
                 </td>
-            </tr>         
+            </tr>   
+                
         </table>
         <br>
         <img th:src ="*{'data:image/PNG;base64,'+user.userQr}"
         alt="QR code" style="height: 200px; width: 200;">
+
 
     </div>
 

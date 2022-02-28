@@ -2,13 +2,17 @@ package com.e_bank.registrationEntity;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
@@ -20,6 +24,7 @@ public class OpenAccount {
 	private long id;
 	
 	private String accountType;
+	
 	private String accountNum;
 	private String ifscCode;
 	
@@ -32,6 +37,8 @@ public class OpenAccount {
 	
 	private String adhaarNum;
 	private String panNum;
+	private double cibilScore;
+	
 	private String gender;
 	
 	private String dob;
@@ -48,9 +55,10 @@ public class OpenAccount {
 	private String maritialStatus;
 	private String occupation;
 	private String country;
+	
+	private long accountBalance;
+	
 	private LocalDateTime openDate;
-	
-	
 
 	@Lob
 	@Column( columnDefinition = "MEDIUMBLOB")
@@ -64,5 +72,7 @@ public class OpenAccount {
 	@Column( columnDefinition = "MEDIUMBLOB")
 	private String userQr;
 	
-	
+	@OneToMany(targetEntity = TransferFund.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "customerId", referencedColumnName ="id" )
+	private List<TransferFund> trans;
 }

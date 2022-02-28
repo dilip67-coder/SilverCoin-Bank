@@ -1,0 +1,14 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 th:text="${flag}"></h1>
+<script th:inline="javascript"> 	// Enable Thymeleaf inlining 
+  	var email = /*[[${flag}]]*/ 	// Behaves just like in HTML
+  	console.log(email);
+</script>
+</body>
+</html>

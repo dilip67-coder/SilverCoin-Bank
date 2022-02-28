@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Registration.css">
+<script src="Registration.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<title>Document</title>
+<script>
+        $('#imageInput').on('change', function () {
+            $input = $(this);
+            if ($input.val().length > 0) {
+                fileReader = new FileReader();
+                fileReader.onload = function (data) {
+                    $('.image-preview').attr('src', data.target.result);
+                }
+                fileReader.readAsDataURL($input.prop('files')[0]);
+                $('.image-button').css('display', 'none');
+                $('.image-preview').css('display', 'block');
+                $('.change-image').css('display', 'block');
+            }
+        });
+
+        $('.change-image').on('click', function () {
+            $control = $(this);
+            $('#imageInput').val('');
+            $preview = $('.image-preview');
+            $preview.attr('src', '');
+            $preview.css('display', 'none');
+            $control.css('display', 'none');
+            $('.image-button').css('display', 'block');
+        });
+        
+      	
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#previewImg')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        	
+    </script>
+</head>
+
+<body>
+	<header>
+		<div th:replace="fragments/headerFragment :: header"></div>
+	</header>
+	<br>
+	<br>
+	<br>
+			<br>
+				<div>
+					<hr>
+					<h3 class="sectiontitle">Contact Information</h3>
+					<hr>
+				</div>
+				<div id="names" >
+				<form action="/registerPan">
+				
+					<label id="name-label" for="name">FullName</label><br> <input
+						type="text" id="fullName" name="fullName" placeholder="Fullname" style="width: 100%;" required>
+					<div>
+					
+					<label id="name-label" for="name">Password</label><br> <input
+						type="text" id="fullName" name="password" placeholder="Set A Password" style="width: 100%;" required>
+					<div>
+						<div>
+						<label for="panNo">Pan Number<span>*</span></label><br> <input
+							id="pan-no" name="panNum" type="text" placeholder="### ### ####"
+							maxlength="10" style="width: 100%;" required>
+					</div>
+						<div>
+							<label for="dropdown">Gender<span>*</span></label><br> 
+							<select style="width: 100%;"
+								id="dropdown" name="gender" required>
+								<option disabled value selected>*Option*</option>
+								<option value="male">Male</option>
+								<option value="female">Female</option>
+								<option value="others">Others</option>
+							</select>
+						</div>
+						<br> <label for="birthday">Birthday:</label><br> <input
+							type="date" id="birthday" onchange="ageCalculator();" name="dob" style="width: 100%;">
+
+						<div>
+							<label id="number-label" for="number">Age</label><br> <input
+								type="number" id="age" name="age" min="1" max="125"
+								class="input-field" placeholder="Age" required style="width: 100%;">
+						</div>
+						<label for="phone">Mobile No<span>*</span></label><br> <input
+							id="phone" type="tel" name="phno" placeholder="### ### ####"
+							maxlength="10" required style="width: 100%;">
+					</div>
+					<div>
+						<label id="email-label" for="email">Email<span>*</span></label><br>
+						<input id="email" type="email" placeholder="Email" name="email"
+							maxlength="50" required style="width: 100%;">
+					</div>
+					<div>
+						<label for="adhar">Addhar Number<span>*</span></label><br> <input
+							id="adhar-no" name="adhaarNum" type="text"
+							placeholder="### ### ####" maxlength="12" required style="width: 100%;">
+					</div>
+			<br>
+
+				</div>
+
+				<div id="identi_sect"
+					style=" width: 100%;">
+					<!-- Mailing Address -->
+					<div>
+						<label>Mailing Home Address<span>*</span></label><br>
+						
+						<input id="Address" type="text" name="address" placeholder="Street Address" maxlength="100" style="width: 100%;" required><br>
+						 
+						<input type="text" placeholder="Country" name="country" maxlength="50" style="width: 100%;" required>
+
+
+						<!-- state -->
+						<div>
+
+							<select onchange="print_city('state', this.selectedIndex);"
+								style="width: 100%;" id="sts" name="state" class="form-control"
+								required></select><br> <select id="state" name="city"
+								class="form-control" style="width: 100%;" required>
+								<option>Select City</option>
+							</select>
+							<script language="javascript">print_state("sts");</script>
+						</div>
+
+						<input type="text" name="pin" style="width: 100%;"
+							placeholder="Postal/Zip Code" maxlength="20" required>
+					</div>
+
+				<hr>
+				<h3 class="sectiontitle">Terms & Conditions</h3>
+				<hr>
+				<div id="term">
+					<p>By completing this account registration form, you agree to
+						the terms and conditions that govern your account and your account
+						and your relationship with the bank.</p>
+					<p>Please check the box below to confirm agreement before
+						sending the bank account registration information.</p>
+					<br>
+					<div>
+						<input type="checkbox" name="Term" value="Term" id="term1"
+							required> <label for="term1">&nbsp;Accept to
+							recieve <span class="terms">notifications</span> from JH_Bank.
+						</label><br> <input type="checkbox" name="Term" value="Term"
+							id="term2" required> <label for="term2">&nbsp;I
+							agree to the <span class="terms">terms of service</span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<button id="submit" type="submit" value="Submit">Submit</button>
+			</div>
+	</form>
+
+	</main>
+</body>
+
+</html>
