@@ -44,4 +44,9 @@ public class TransferService {
 		
 		return tRepo.findAllById(id);
 	}
+	
+	public TransferFund getByTransactionId(String tid) {
+		
+		return tRepo.findByTransactionId(tid);
+	}
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transcation Details page</title>
+    <title>Banking app landing page</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -19,7 +19,7 @@
 
 <header>
 
-    <a href="#" class="logo"><span>SilverCoin</span>BANK<i class="fa fa-bank"></i></a>
+    <a href="/" class="logo"><span>SilverCoin</span>BANK<i class="fa fa-bank"></i></a>
     
 
     <input type="checkbox" id="menu-bar">
@@ -29,98 +29,49 @@
         <a href="/">home<i class="fa fa-home"></i></a>
         <a href="/openAccount">Create Account<i class="fa fa-user-plus"></i></a>
         <a href="/fundTransfer">Fund Transfer<i class="fa fa-exchange"></i></a>
-        <a href="/loan.html">Loan<i class="fas fa-donate"></i></a>
+        <a onclick="scrollService();">Loan<i class="fas fa-donate"></i></a>
         <a href="/eStatement">E_Statment<i class="fas fa-receipt"></i></a>
         <a href="/update">Updation<i class="fas fa-cash-register"></i></a>
         <a href="../cibilScore">Cibil Score<i class="fas fa-balance-scale"></i></a>
         <a href="/card">My Card<i class="fa fa-credit-card" ></i></a>
         <a href="/equity/0">Equity info<i class="fa fa-star" ></i></a>
     </nav>
+
 </header>
 
 <!-- header section ends -->
 
-<!-- transcation Details table starts  -->
-<section class="home" id="home">
-    <!-- <div class="form" style="width: 100%; padding: 30px;"> -->
+<!-- home section starts  -->
+
+<section class="home" id="home" >
+    <div class="form" style="width: 100%;">
         
-        <h2>Transaction Details </h2><br>
-        <table style="color: aliceblue; position: inherit;">
-            <tr style="background-color: black; padding: 10px;">
-                <th>Transaction Id</th>
-                <th>Transaction Date</th>
-                <th>Upi Id</th>
-                
-                <th>Debit Card Number</th>
-                <th>Debit Card Holder Name</th>
-                
-                <th>Account Number</th>
-                <th>Account Holder Name</th>
-                <th>IFSC Code</th>
-                
-                <th>Debit Amount</th>
-                <th>Charges</th>
-                <th>Total amount Debited</th>
-                
-                <th>Debit</th>
-                
-                <th>Transaction Status</th>
-                
-                
-                 <th>Cibil Score</th>
-                 
-                  <th>Deposit</th>
-                   <th>Deposit Amount</th>
-                 
-                  <th>Balance </th>
-            </tr>
-            
-            <tr th:each="t : ${transactions}" style="background-color: black;">
-            
-            	<td> <a th:href="@{/miniStatement/{tid}(tid=${t.transcationID})}" th:text= "${t.transcationID}"></a></td>
-            	<td th:text= "${t.transactionDate}"></td>
-            	
-            	<td th:text= "${t.upiId}"></td>
-            	<td th:text= "${t.cardNum}"></td>
-            	
-            	<td th:text= "${t.cardHolderName}"></td>
-            	<td th:text= "${t.accNum}"></td>
-            	
-            	<td th:text= "${t.accountHolderName}"></td>
-            	<td th:text= "${t.ifscCode}"></td>
-            	
-            	<td th:text= "${t.amount}"></td>
-            	
-            	<td th:text= "${t.charges}"></td>
-            	<td th:text= "${t.totalAmount}"></td>
-            	
-            	<td th:text= "${t.debit}"></td>
-            	
-            	<td th:text= "${t.status}"></td>
-            	
-            	
-            	
-            	<td th:text="${cibilScore}"></td>
-            	
-            	<td th:text="${t.deposit}"></td>
-            	
-            	<td th:text= "${t.depositAmount}"></td>
-            	
-            	<td th:text= "₹ +  ${accountBalance}"></td>
-            </tr>
+        <h2 th:text="Hello + ${username}"></h2>
+    <form action="/depositFund">
 
+        
+        <div class="input">
+            <div class="inputBox">
+                <label for="">Enter Amount in Rs.</label>
+                <input type="number" name="depositAmount" >
+            </div>
+            <input type="hidden" name="customerId" th:value="${customerId}">
+            <div class="inputBox">
+                <input type="submit" name="" value="Deposit"> 
+            </div>
+        </div>
+    </form>
+        <p class="forgot">Forgot Password? <a href="/forgotPassword">Click Here</a></p>
+        
+    </div>
 
-        </table>
-    <!-- </div> -->
-   </section>
+</section>
+
 <!-- home section ends -->
-<br>
-<br>
-<br>
 
 <!-- footer section starts  -->
 
-<div class="footer" style="width: 100%; margin-left: 0;" >
+<div class="footer">
 
     <div class="box-container">
 

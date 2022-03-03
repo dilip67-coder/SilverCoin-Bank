@@ -38,4 +38,9 @@ public class TransferFund {
 	private String status;
 	
 	private long customerAccountNum;
+	
+	private String debit;
+	
+	private String deposit;
+	private long depositAmount;
 }

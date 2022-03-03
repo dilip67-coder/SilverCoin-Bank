@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transcation Details page</title>
+    <title>Mini Statement</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -65,19 +65,16 @@
                 <th>Debit</th>
                 
                 <th>Transaction Status</th>
-                
-                
-                 <th>Cibil Score</th>
-                 
+
                   <th>Deposit</th>
                    <th>Deposit Amount</th>
                  
-                  <th>Balance </th>
+        
             </tr>
             
-            <tr th:each="t : ${transactions}" style="background-color: black;">
+            <tr th:each="t : ${tidDetails}" style="background-color: black;">
             
-            	<td> <a th:href="@{/miniStatement/{tid}(tid=${t.transcationID})}" th:text= "${t.transcationID}"></a></td>
+            	<td th:text= "${t.transcationID}"></td>
             	<td th:text= "${t.transactionDate}"></td>
             	
             	<td th:text= "${t.upiId}"></td>
@@ -98,15 +95,10 @@
             	
             	<td th:text= "${t.status}"></td>
             	
-            	
-            	
-            	<td th:text="${cibilScore}"></td>
-            	
             	<td th:text="${t.deposit}"></td>
             	
             	<td th:text= "${t.depositAmount}"></td>
-            	
-            	<td th:text= "₹ +  ${accountBalance}"></td>
+       
             </tr>
 
 

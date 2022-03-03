@@ -14,4 +14,6 @@ public interface TransactionRepository extends JpaRepository<TransferFund, Long>
 	@Query(value="SELECT * FROM Transfer_Fund where customer_account_num = ?",nativeQuery = true)
 	List<TransferFund> findAllById(long id);
 
+	@Query(value="SELECT * FROM Transfer_Fund where transcationid = ?", nativeQuery = true)
+	TransferFund findByTransactionId(String tid);
 }

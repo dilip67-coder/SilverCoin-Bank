@@ -64,7 +64,6 @@ public class RootController {
 		oa.setPassword(generatePassword(oa));
 		oa.setAccountNum(generateAccountNum());
 		oa.setIfscCode("IFSCEBNK90909090");
-		oa.setAccountBalance(500000);
 		oa.setCibilScore(650);
 		oa.setOpenDate(LocalDateTime.now());
 		
@@ -108,8 +107,6 @@ public class RootController {
 	}
 	
 	public String generateUsername(OpenAccount oa) {
-		
-		
 		Random r = new Random();
 		int num = r.nextInt(999) ;
 		String username = oa.getFirstName() + oa.getLastName() + num;
@@ -125,31 +122,56 @@ public class RootController {
 		char l = oa.getLastName().charAt(0);
 		System.out.println(l);
 		// phone Even no find
-		String[] split = oa.getPhno().split("");
-		ArrayList<Integer> ph = new ArrayList<Integer>();
-		for (int i = 0; i < split.length; i++) {
-			ph.add(Integer.valueOf(split[i]));
+		
+		long phn=Long.parseLong(oa.getPhno());
+		ArrayList<Long> al=new ArrayList();
+		while(phn>0) {
+			al.add(phn%10);
+			phn/=10;
 		}
-
-		List<Integer> phEven = ph.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
-		int sum = (int) phEven.stream().mapToDouble(n -> n).sum();
-		String evenString = "";
-		for (int i = 0; i < phEven.size(); i++) {
-			evenString += phEven.get(i);
+		for(int i=0;i<al.size();i++) {
+			if(i%2==0)
+				phn+=al.get(i);
 		}
+		int a=(int)phn%10;
+		phn=phn/10;
+		phn+=a;
+		System.out.println(phn);
 		// pan chard vowel no and even No
-		String[] split2 = oa.getPanNum().split("");
-		String vowl = "";
-		String evenPan = "";
-		for (int i = 0; i < split2.length; i++) {
-			if (split2[i].equals("a") || split2[i].equals("i") || split2[i].equals("o") || split2[i].equals("u")
-					|| split2[i].equals("e")) {
-				vowl += split2[i];
+		
+		String[] ch=oa.getPanNum().toLowerCase().split("");
+		String s="";
+		
+		for(int i=0;i<ch.length;i++) {
+			if(ch[i].equals("a")||ch[i].equals("e")||ch[i].equals("i")||
+					ch[i].equals("o")||ch[i].equals("u")) {
+				s+=ch[i];
 			}
-
 		}
-
-		String password = vowl +  sum +evenPan +f+l +evenString;
+		s=s.toUpperCase();
+		char[] c=oa.getPanNum().toCharArray();
+		String num="";
+		for(int i=0;i<c.length;i++) {
+			if(c[i]>='0' && c[i]<='9') {
+				num+=c[i];
+			}
+		}
+		long lum=Long.parseLong(num);
+		System.out.println(lum);
+		int n=0;
+		while(lum>0) {
+			int num1=(int)lum%10;
+			if(num1%2==0) {
+				n+=num1;
+			}
+			lum/=10;
+		}
+		System.err.println(n);
+		int f1=n%10; n/=10;
+		f1+=n;
+		System.out.println(f1);
+		
+		String password = ""+l+f+phn+s+f1;
 		System.out.println("Password ="+password);
 		return password;
 	}
